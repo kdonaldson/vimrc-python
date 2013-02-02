@@ -10,18 +10,23 @@ Bundle 'gmarik/vundle'
 
 " My Bundles here:
 "
-" original repos on github
+"   General 
 Bundle 'Lokaltog/powerline'
 Bundle 'ervandew/supertab'
-Bundle 'klen/python-mode'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
-
-" vim-scripts repos
-
-" non github repos
 Bundle 'git://git.wincent.com/command-t.git'
-" ...
+"   Python
+Bundle 'klen/python-mode'
+Bundle 'nvie/vim-flake8'
+"   JavaScript
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'leshill/vim-json'
+"   HTML
+Bundle 'othree/html5.vim'
+Bundle 'indenthtml.vim'
+Bundle 'mutewinter/vim-css3-syntax'
 
 filetype plugin indent on     " required!
 "
@@ -37,6 +42,8 @@ filetype plugin indent on     " required!
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
+" powerline
+python from powerline.bindings.vim import source_plugin; source_plugin()
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -90,6 +97,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
+"    Python Mode
+let g:pymode_lint_checker = "pyflakes,pep8,mccabe"
 
 " Add the virtualenv's site-packages to vim path
 py << EOF
