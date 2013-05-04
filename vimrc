@@ -1,4 +1,9 @@
-set nocompatible               " be iMproved
+" Use Vim settings, rather than Vi settings (much better!).
+set nocompatible
+
+" Make backspace behave in a sane manner.
+set backspace=indent,eol,start
+
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
@@ -27,6 +32,7 @@ Bundle 'leshill/vim-json'
 Bundle 'othree/html5.vim'
 Bundle 'indenthtml.vim'
 Bundle 'mutewinter/vim-css3-syntax'
+Bundle 'git://github.com/mattn/zencoding-vim.git'
 
 filetype plugin indent on     " required!
 "
@@ -61,8 +67,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Settings for vim-powerline
 set laststatus=2
 
-" syntax highlighting
+" Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
+
+" syntax highlighting
 syntax on
 
 " Showing line numbers and length
